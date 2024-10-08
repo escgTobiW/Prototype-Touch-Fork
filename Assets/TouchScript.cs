@@ -7,7 +7,7 @@ public class TouchScript : MonoBehaviour
 {
 
 
-    private Vector3 position;
+    public Vector3 position;
     private float width;
     private float height;
 
@@ -16,7 +16,7 @@ public class TouchScript : MonoBehaviour
 
 
     public Collider2D Collider;
-    bool inRange = true;
+    public bool inRange = true;
 
     void Start()
     {
@@ -40,14 +40,19 @@ public class TouchScript : MonoBehaviour
                 //pos.x = (pos.x - width) / width;
                 //pos.y = (pos.y - height) / height;
                 position = new Vector3(pos.x, pos.y, 0.0f);
-
-                while (inRange == true)
+                /*
+                if (inRange == true)
                 {
                     print("TRUE!!!!!!!!");
                     // Position the object.
-                    JoyStickBall.transform.position = position;
+                    //JoyStickBall.transform.position = position;
+                    transform.position = Vector3.MoveTowards(transform.position, position, 100 * Time.deltaTime);
                 }
-              
+                else
+                {
+
+                }
+              */
 
                 //propel sphere in direction matching joystick
                 // Sphere. etc 
@@ -62,14 +67,18 @@ public class TouchScript : MonoBehaviour
             */
         }
     }
-
-    private void OnCollisionExit2D(Collision2D collision)
+    
+    private void OnColliderExit2D(Collision2D JoyStickBall)
     {
         
-        inRange = false;
-        print("FALSE!!!!!!!!!!!!!");
-    }
+       
+        
 
+        print("FALSE!!!!!!!!!!!!!");
+        inRange = false;
+    }
+    
+    
     //—--------------------------
 
     /*
