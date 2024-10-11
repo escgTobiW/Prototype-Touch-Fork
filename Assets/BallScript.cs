@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class BallScript : TouchScript
 {
-
+    /*
     TouchScript Touch = new TouchScript();
     public GameObject barrier;
 
